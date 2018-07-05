@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2000
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jen-Nico-BoVoyage", "Jen-Nico-BoVoyage\Jen-Nico-BoVoyage.csproj", "{D2CC818B-7C71-45E3-94CF-47B58E2F26C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jen-Nico-BoVoyage.Tests", "Jen-Nico-BoVoyage.Tests\Jen-Nico-BoVoyage.Tests.csproj", "{F25D79E5-E3B5-40B0-B18F-9AC019218E36}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D2CC818B-7C71-45E3-94CF-47B58E2F26C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2CC818B-7C71-45E3-94CF-47B58E2F26C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2CC818B-7C71-45E3-94CF-47B58E2F26C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2CC818B-7C71-45E3-94CF-47B58E2F26C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F25D79E5-E3B5-40B0-B18F-9AC019218E36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F25D79E5-E3B5-40B0-B18F-9AC019218E36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F25D79E5-E3B5-40B0-B18F-9AC019218E36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F25D79E5-E3B5-40B0-B18F-9AC019218E36}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {38424C9E-2410-45BF-B990-72E1C11A9082}
+	EndGlobalSection
+EndGlobal
