@@ -98,6 +98,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Html\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="Html\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="Html\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="Html\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="Html\bootstrap\css\bootstrap.css" />
+    <Content Include="Html\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Html\bootstrap\jquery\jquery-3.3.1.min.js" />
+    <Content Include="Html\bootstrap\js\bootstrap.bundle.js" />
+    <Content Include="Html\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="Html\bootstrap\js\bootstrap.js" />
+    <Content Include="Html\bootstrap\js\bootstrap.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -111,6 +122,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Html\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="Html\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="Html\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="Html\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Html\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Html\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Html\bootstrap\js\bootstrap.bundle.js.map" />
+    <Content Include="Html\bootstrap\js\bootstrap.bundle.min.js.map" />
+    <Content Include="Html\bootstrap\js\bootstrap.js.map" />
+    <Content Include="Html\bootstrap\js\bootstrap.min.js.map" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
