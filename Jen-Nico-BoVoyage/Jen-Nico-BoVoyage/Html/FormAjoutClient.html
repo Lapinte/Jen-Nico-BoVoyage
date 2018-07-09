@@ -100,7 +100,10 @@
             }
 
             $("form").submit(function (ev) {
-                $.post("http://", obj);
+                $.post("http://", function (obj) {
+                    alert(`Client enregistré avec l'ID ${obj.ID}`);
+                });
+                
                 ev.preventDefault;
                 
             })
