@@ -87,5 +87,25 @@
 
     <script src="bootstrap/jquery/jquery-3.3.1.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            let obj = {
+                Nom: $("#inputLastName").val(),
+                Prenom: $("#inputFirstName").val(),
+                Adresse: $("#adresse").val(),
+                Telephone: $("#telephone").val(),
+                DateNaissance: $("#birthDate").val(),
+                Email: $("#email").val()
+            }
+
+            $("form").submit(function (ev) {
+                $.post("http://", obj);
+                ev.preventDefault;
+                
+            })
+        })
+
+    </script>
 </body>
 </html>
