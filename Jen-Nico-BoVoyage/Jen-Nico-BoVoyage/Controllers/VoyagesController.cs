@@ -25,7 +25,7 @@ namespace Jen_Nico_BoVoyage.Controllers
         // GET: api/Voyages
         public IQueryable<Voyage> GetVoyages()
         {
-            return db.Voyages;
+            return db.Voyages.Include(x => x.Agence).Include(x => x.Destination);
         }
 
         /// <summary>
