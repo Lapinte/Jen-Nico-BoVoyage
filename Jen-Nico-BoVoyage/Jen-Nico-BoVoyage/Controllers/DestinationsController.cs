@@ -17,12 +17,20 @@ namespace Jen_Nico_BoVoyage.Controllers
     {
         private BoVoyageDbContext db = new BoVoyageDbContext();
 
+        /// <summary>
+        /// Récupère et retourne la liste des Destinations
+        /// </summary>
+        /// <returns></returns>
         // GET: api/Destinations
         public IQueryable<Destination> GetDestinations()
         {
             return db.Destinations;
         }
 
+        /// <summary>
+        /// Récupère et retourne une Destination en fonction de son ID
+        /// </summary>
+        /// <returns></returns>
         // GET: api/Destinations/5
         [ResponseType(typeof(Destination))]
         public IHttpActionResult GetDestination(int id)
@@ -36,6 +44,10 @@ namespace Jen_Nico_BoVoyage.Controllers
             return Ok(destination);
         }
 
+        /// <summary>
+        /// Modifie une Destination grâce à un objet JSON
+        /// </summary>
+        /// <returns></returns>
         // PUT: api/Destinations/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutDestination(int id, Destination destination)
@@ -71,6 +83,10 @@ namespace Jen_Nico_BoVoyage.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
+        /// <summary>
+        /// Ajoute une Destination grâce à un objet JSON
+        /// </summary>
+        /// <returns></returns>
         // POST: api/Destinations
         [ResponseType(typeof(Destination))]
         public IHttpActionResult PostDestination(Destination destination)
@@ -86,6 +102,10 @@ namespace Jen_Nico_BoVoyage.Controllers
             return CreatedAtRoute("DefaultApi", new { id = destination.ID }, destination);
         }
 
+        /// <summary>
+        /// Supprime une Destination en fonction de son ID
+        /// </summary>
+        /// <returns></returns>
         // DELETE: api/Destinations/5
         [ResponseType(typeof(Destination))]
         public IHttpActionResult DeleteDestination(int id)

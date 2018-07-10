@@ -17,12 +17,20 @@ namespace Jen_Nico_BoVoyage.Controllers
     {
         private BoVoyageDbContext db = new BoVoyageDbContext();
 
+        /// <summary>
+        /// Récupère et retourne la liste des Clients
+        /// </summary>
+        /// <returns></returns>
         // GET: api/Clients
         public IQueryable<Client> GetClients()
         {
             return db.Clients;
         }
 
+        /// <summary>
+        /// Récupère et retourne un Client en fonction de son ID
+        /// </summary>
+        /// <returns></returns>
         // GET: api/Clients/5
         [ResponseType(typeof(Client))]
         public IHttpActionResult GetClient(int id)
@@ -36,6 +44,10 @@ namespace Jen_Nico_BoVoyage.Controllers
             return Ok(client);
         }
 
+        /// <summary>
+        /// Modifie un Client grâce à un objet JSON
+        /// </summary>
+        /// <returns></returns>
         // PUT: api/Clients/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutClient(int id, Client client)
@@ -71,6 +83,10 @@ namespace Jen_Nico_BoVoyage.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
+        /// <summary>
+        /// Ajoute un Client grâce à un objet JSON
+        /// </summary>
+        /// <returns></returns>
         // POST: api/Clients
         [ResponseType(typeof(Client))]
         public IHttpActionResult PostClient(Client client)
@@ -86,6 +102,10 @@ namespace Jen_Nico_BoVoyage.Controllers
             return CreatedAtRoute("DefaultApi", new { id = client.ID }, client);
         }
 
+        /// <summary>
+        /// Supprime un Client en fonction de son ID
+        /// </summary>
+        /// <returns></returns>
         // DELETE: api/Clients/5
         [ResponseType(typeof(Client))]
         public IHttpActionResult DeleteClient(int id)

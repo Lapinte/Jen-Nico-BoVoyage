@@ -17,12 +17,20 @@ namespace Jen_Nico_BoVoyage.Controllers
     {
         private BoVoyageDbContext db = new BoVoyageDbContext();
 
+        /// <summary>
+        /// Récupère et retourne la liste des Agences
+        /// </summary>
+        /// <returns></returns>
         // GET: api/Agences
         public IQueryable<Agence> GetAgences()
         {
             return db.Agences;
         }
 
+        /// <summary>
+        /// Récupère et retourne une Agence en fonction de son ID
+        /// </summary>
+        /// <returns></returns>
         // GET: api/Agences/5
         [ResponseType(typeof(Agence))]
         public IHttpActionResult GetAgence(int id)
@@ -36,6 +44,10 @@ namespace Jen_Nico_BoVoyage.Controllers
             return Ok(agence);
         }
 
+        /// <summary>
+        /// Modifie une Agence grâce à un objet JSON
+        /// </summary>
+        /// <returns></returns>
         // PUT: api/Agences/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutAgence(int id, Agence agence)
@@ -71,6 +83,10 @@ namespace Jen_Nico_BoVoyage.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
+        /// <summary>
+        /// Ajoute une Agence grâce à un objet JSON
+        /// </summary>
+        /// <returns></returns>
         // POST: api/Agences
         [ResponseType(typeof(Agence))]
         public IHttpActionResult PostAgence(Agence agence)
@@ -86,6 +102,10 @@ namespace Jen_Nico_BoVoyage.Controllers
             return CreatedAtRoute("DefaultApi", new { id = agence.ID }, agence);
         }
 
+        /// <summary>
+        /// Supprime une Agence en fonction de son ID
+        /// </summary>
+        /// <returns></returns>
         // DELETE: api/Agences/5
         [ResponseType(typeof(Agence))]
         public IHttpActionResult DeleteAgence(int id)
