@@ -24,7 +24,7 @@ namespace Jen_Nico_BoVoyage.Controllers
         // GET: api/Participants
         public IQueryable<Participant> GetParticipants()
         {
-            return db.Participants;
+            return db.Participants.Include(x => x.Dossier);
         }
 
         /// <summary>
