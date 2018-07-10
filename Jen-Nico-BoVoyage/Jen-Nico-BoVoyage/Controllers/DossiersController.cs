@@ -17,12 +17,22 @@ namespace Jen_Nico_BoVoyage.Controllers
     {
         private BoVoyageDbContext db = new BoVoyageDbContext();
 
+        /// <summary>
+        /// Récupère et retourne la liste des Dossiers
+        /// </summary>
+        /// <returns></returns>
         // GET: api/Dossiers
         public IQueryable<Dossier> GetDossiers()
         {
             return db.Dossiers;
         }
 
+
+        /// <summary>
+        /// Récupère et retourne un Dossier en fonction de son ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: api/Dossiers/5
         [ResponseType(typeof(Dossier))]
         public IHttpActionResult GetDossier(int id)
@@ -36,6 +46,13 @@ namespace Jen_Nico_BoVoyage.Controllers
             return Ok(dossier);
         }
 
+
+        /// <summary>
+        /// Modifie un Dossier grâce à un objet JSON
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="dossier"></param>
+        /// <returns></returns>
         // PUT: api/Dossiers/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutDossier(int id, Dossier dossier)
@@ -71,6 +88,12 @@ namespace Jen_Nico_BoVoyage.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
+
+        /// <summary>
+        /// Ajoute un Dossier grâce à un objet JSON
+        /// </summary>
+        /// <param name="dossier"></param>
+        /// <returns></returns>
         // POST: api/Dossiers
         [ResponseType(typeof(Dossier))]
         public IHttpActionResult PostDossier(Dossier dossier)
@@ -86,6 +109,12 @@ namespace Jen_Nico_BoVoyage.Controllers
             return CreatedAtRoute("DefaultApi", new { id = dossier.ID }, dossier);
         }
 
+        
+        /// <summary>
+        /// Supprime un Dossier en fonction de son ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // DELETE: api/Dossiers/5
         [ResponseType(typeof(Dossier))]
         public IHttpActionResult DeleteDossier(int id)

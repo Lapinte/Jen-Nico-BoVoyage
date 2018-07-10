@@ -17,12 +17,21 @@ namespace Jen_Nico_BoVoyage.Controllers
     {
         private BoVoyageDbContext db = new BoVoyageDbContext();
 
+        /// <summary>
+        /// Récupère et retourne la liste des Participants
+        /// </summary>
+        /// <returns></returns>
         // GET: api/Participants
         public IQueryable<Participant> GetParticipants()
         {
             return db.Participants;
         }
 
+        /// <summary>
+        /// Récupère et retourne un Participant en fonction de son ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: api/Participants/5
         [ResponseType(typeof(Participant))]
         public IHttpActionResult GetParticipant(int id)
@@ -36,6 +45,12 @@ namespace Jen_Nico_BoVoyage.Controllers
             return Ok(participant);
         }
 
+        /// <summary>
+        /// Modifie un Participant grâce à un objet JSON
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="participant"></param>
+        /// <returns></returns>
         // PUT: api/Participants/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutParticipant(int id, Participant participant)
@@ -71,6 +86,12 @@ namespace Jen_Nico_BoVoyage.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
+
+        /// <summary>
+        /// Ajoute un PArticipant grâce à un objet JSON
+        /// </summary>
+        /// <param name="participant"></param>
+        /// <returns></returns>
         // POST: api/Participants
         [ResponseType(typeof(Participant))]
         public IHttpActionResult PostParticipant(Participant participant)
@@ -86,6 +107,11 @@ namespace Jen_Nico_BoVoyage.Controllers
             return CreatedAtRoute("DefaultApi", new { id = participant.ID }, participant);
         }
 
+        /// <summary>
+        /// Supprime un Participant en fonction de son ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // DELETE: api/Participants/5
         [ResponseType(typeof(Participant))]
         public IHttpActionResult DeleteParticipant(int id)
