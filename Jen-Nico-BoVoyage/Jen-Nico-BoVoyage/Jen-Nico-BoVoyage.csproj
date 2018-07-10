@@ -130,6 +130,9 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Agence.cs" />
     <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="Models\Client.cs" />
+    <Compile Include="Models\Participant.cs" />
+    <Compile Include="Models\Personne.cs" />
     <Compile Include="Models\Destination.cs" />
     <Compile Include="Models\Dossier.cs" />
     <Compile Include="Models\Voyage.cs" />
