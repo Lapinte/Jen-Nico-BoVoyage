@@ -17,12 +17,23 @@ namespace Jen_Nico_BoVoyage.Controllers
     {
         private BoVoyageDbContext db = new BoVoyageDbContext();
 
+
+        /// <summary>
+        /// Récupère et retourne la liste des Voyages
+        /// </summary>
+        /// <returns></returns>
         // GET: api/Voyages
         public IQueryable<Voyage> GetVoyages()
         {
             return db.Voyages;
         }
 
+
+        /// <summary>
+        /// Récupère et retourne un Voyage en fonction de son ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: api/Voyages/5
         [ResponseType(typeof(Voyage))]
         public IHttpActionResult GetVoyage(int id)
@@ -36,6 +47,13 @@ namespace Jen_Nico_BoVoyage.Controllers
             return Ok(voyage);
         }
 
+
+        /// <summary>
+        /// Modifie un Voyage grâce à un objet JSON
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="dossier"></param>
+        /// <returns></returns>
         // PUT: api/Voyages/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutVoyage(int id, Voyage voyage)
@@ -71,6 +89,12 @@ namespace Jen_Nico_BoVoyage.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
+
+        /// <summary>
+        /// Ajoute un Voyage grâce à un objet JSON
+        /// </summary>
+        /// <param name="dossier"></param>
+        /// <returns></returns>
         // POST: api/Voyages
         [ResponseType(typeof(Voyage))]
         public IHttpActionResult PostVoyage(Voyage voyage)
@@ -86,6 +110,12 @@ namespace Jen_Nico_BoVoyage.Controllers
             return CreatedAtRoute("DefaultApi", new { id = voyage.ID }, voyage);
         }
 
+
+        /// <summary>
+        /// Supprime un voyage en fonction de son ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // DELETE: api/Voyages/5
         [ResponseType(typeof(Voyage))]
         public IHttpActionResult DeleteVoyage(int id)
