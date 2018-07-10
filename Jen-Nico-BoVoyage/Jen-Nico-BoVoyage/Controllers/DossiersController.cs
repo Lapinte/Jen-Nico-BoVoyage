@@ -24,7 +24,7 @@ namespace Jen_Nico_BoVoyage.Controllers
         // GET: api/Dossiers
         public IQueryable<Dossier> GetDossiers()
         {
-            return db.Dossiers;
+            return db.Dossiers.Include(x => x.Client).Include(x => x.Voyage);
         }
 
 
