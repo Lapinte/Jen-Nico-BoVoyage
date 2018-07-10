@@ -46,6 +46,19 @@ namespace Jen_Nico_BoVoyage.Controllers
             return Ok(dossier);
         }
 
+        //GET: api/Dossiers/search
+        [Route("api/Dossiers/search")]
+        public IQueryable<Dossier> GetSearch(int? clientId = null, int? voyageId = null)
+        {
+            var query = db.Dossiers.Where(x => !x.Deleted);
+            if (clientId != null)
+                query = query.Where(x => x.ClientID == clientId);
+            if (voyageId != null)
+                query = query.Where(x => x.VoyageID == voyageId);
+
+            return query;
+        }
+
 
         /// <summary>
         /// Modifie un Dossier grâce à un objet JSON

@@ -112,7 +112,7 @@ namespace Jen_Nico_BoVoyage.Controllers
 
 
         /// <summary>
-        /// Supprime un voyage en fonction de son ID
+        /// Supprime un Voyage en fonction de son ID
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>

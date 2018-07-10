@@ -88,7 +88,7 @@ namespace Jen_Nico_BoVoyage.Controllers
 
 
         /// <summary>
-        /// Ajoute un PArticipant grâce à un objet JSON
+        /// Ajoute un Participant grâce à un objet JSON
         /// </summary>
         /// <param name="participant"></param>
         /// <returns></returns>
