@@ -46,6 +46,35 @@ namespace Jen_Nico_BoVoyage.Controllers
         }
 
         /// <summary>
+        /// Récupère et retourne la liste des Participants en fontion de la Civilité, Nom, Prénom, Adresse, Telephone et la Date de Naissance 
+        /// </summary>
+        /// <param name="civilite"></param>
+        /// <param name="nom"></param>
+        /// <param name="prenom"></param>
+        /// <param name="adresse"></param>
+        /// <param name="telephone"></param>
+        /// <param name="dateNaissance"></param>
+        /// <returns></returns>
+        //GET: api/Participants/search
+        [Route("api/Participants/search")]
+        public IQueryable<Participant> GetSearch(string civilite ="", string nom ="", string prenom ="", string adresse ="", string telephone ="", DateTime? dateNaissance = null)
+        {
+            var query = db.Participants.Where(x => !x.Deleted);
+            if (!string.IsNullOrWhiteSpace(nom))
+                query = query.Where(x => x.Nom.Contains(nom));
+            if (!string.IsNullOrWhiteSpace(prenom))
+                query = query.Where(x => x.Prenom.Contains(prenom));
+            if (!string.IsNullOrWhiteSpace(adresse))
+                query = query.Where(x => x.Adresse.Contains(adresse));
+            if (!string.IsNullOrWhiteSpace(telephone))
+                query = query.Where(x => x.Telephone.Contains(telephone));
+            if (dateNaissance != null)
+                query = query.Where(x => x.DateNaissance == dateNaissance);
+
+            return query;
+        }
+
+        /// <summary>
         /// Modifie un Participant grâce à un objet JSON
         /// </summary>
         /// <param name="id"></param>

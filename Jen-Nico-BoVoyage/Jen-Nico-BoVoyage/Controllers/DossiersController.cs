@@ -46,6 +46,13 @@ namespace Jen_Nico_BoVoyage.Controllers
             return Ok(dossier);
         }
 
+
+        /// <summary>
+        /// Récupère et retourne la liste des Dossiers en fontion de l'ID Client ou Voyage
+        /// </summary>
+        /// <param name="clientId"></param>
+        /// <param name="voyageId"></param>
+        /// <returns></returns>
         //GET: api/Dossiers/search
         [Route("api/Dossiers/search")]
         public IQueryable<Dossier> GetSearch(int? clientId = null, int? voyageId = null)

@@ -28,6 +28,36 @@ namespace Jen_Nico_BoVoyage.Controllers
             return db.Voyages;
         }
 
+        /// <summary>
+        /// Récupère et retourne la liste des Voyages en fonction de la Date d'aller, retour, des places disponibles, du tarif et de l'id de l'agence et de la destination 
+        /// </summary>
+        /// <param name="dateAller"></param>
+        /// <param name="dateRetour"></param>
+        /// <param name="placesDisponibles"></param>
+        /// <param name="tarifToutCompris"></param>
+        /// <param name="destinationId"></param>
+        /// <param name="agenceId"></param>
+        /// <returns></returns>
+        //GET: api/Voyages/search
+        [Route("api/Voyages/search")]
+        public IQueryable<Voyage> GetSearch(DateTime? dateAller = null, DateTime? dateRetour = null, int? placesDisponibles = null, float? tarifToutCompris = null, int? destinationId = null, int? agenceId = null)
+        {
+            var query = db.Voyages.Where(x => !x.Deleted);
+            if (dateAller != null)
+                query = query.Where(x => x.DateAller == dateAller);
+            if (dateRetour != null)
+                query = query.Where(x => x.DateRetour == dateRetour);
+            if (placesDisponibles != null)
+                query = query.Where(x => x.PlacesDisponibles == placesDisponibles);
+            if (tarifToutCompris != null)
+                query = query.Where(x => x.TarifToutCompris == tarifToutCompris);
+            if (destinationId != null)
+                query = query.Where(x => x.DestinationID == destinationId);
+            if (agenceId != null)
+                query = query.Where(x => x.AgenceID == agenceId);
+
+            return query;
+        }
 
         /// <summary>
         /// Récupère et retourne un Voyage en fonction de son ID
