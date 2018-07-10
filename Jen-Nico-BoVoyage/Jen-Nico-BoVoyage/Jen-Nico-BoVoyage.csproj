@@ -141,6 +141,10 @@
     <Compile Include="Migrations\201807100928123_ModifPersonne.Designer.cs">
       <DependentUpon>201807100928123_ModifPersonne.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807101304050_ModifTableParticipants.cs" />
+    <Compile Include="Migrations\201807101304050_ModifTableParticipants.Designer.cs">
+      <DependentUpon>201807101304050_ModifTableParticipants.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Agence.cs" />
     <Compile Include="Models\BaseModel.cs" />
@@ -180,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807100928123_ModifPersonne.resx">
       <DependentUpon>201807100928123_ModifPersonne.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807101304050_ModifTableParticipants.resx">
+      <DependentUpon>201807101304050_ModifTableParticipants.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
