@@ -11,8 +11,8 @@ namespace Jen_Nico_BoVoyage.Models
         public int NumeroUnique { get; set; }
         public float Reduction { get; set; }
 
-        [ForeignKey("IdDossierReservation")]
-        public DossiersReservation DossiersReservation { get; set; }
-        public int IdDossierReservation { get; set; }
+        [ForeignKey("DossierID")]
+        public Dossier Dossier { get; set; }
+        public int DossierID { get; set; }
     }
 }
