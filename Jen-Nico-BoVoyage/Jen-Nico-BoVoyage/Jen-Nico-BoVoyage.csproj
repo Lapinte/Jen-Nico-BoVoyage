@@ -98,6 +98,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Html\AfficherDestinations.html" />
     <Content Include="Html\bootstrap\css\bootstrap-grid.css" />
     <Content Include="Html\bootstrap\css\bootstrap-grid.min.css" />
     <Content Include="Html\bootstrap\css\bootstrap-reboot.css" />
