@@ -45,6 +45,30 @@ namespace Jen_Nico_BoVoyage.Controllers
         }
 
         /// <summary>
+        /// Récupère la liste des Destinations en fonction du continent, du pays, de la région et/ou de la description
+        /// </summary>
+        /// <param name="continent"></param>
+        /// <param name="pays"></param>
+        /// <param name="region"></param>
+        /// <param name="description"></param>
+        /// <returns></returns>
+        [Route("api/Destinations/search")]
+        public IQueryable<Destination> GetSearch(string continent = "", string pays = "", string region = "", string description = "")
+        {
+            var liste = db.Destinations.Where(x => !x.Deleted);
+            if (!string.IsNullOrWhiteSpace(continent))
+                liste = liste.Where(x => x.Continent.Contains(continent));
+            if (!string.IsNullOrWhiteSpace(pays))
+                liste = liste.Where(x => x.Pays.Contains(pays));
+            if (!string.IsNullOrWhiteSpace(region))
+                liste = liste.Where(x => x.Region.Contains(region));
+            if (!string.IsNullOrWhiteSpace(description))
+                liste = liste.Where(x => x.Description.Contains(description));
+
+            return liste;
+        }
+
+        /// <summary>
         /// Modifie une Destination grâce à un objet JSON
         /// </summary>
         /// <returns></returns>

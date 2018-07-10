@@ -47,14 +47,15 @@ namespace Jen_Nico_BoVoyage.Controllers
         /// <summary>
         /// Récupère et retourne la liste des Agences en fontion de leur nom
         /// </summary>
-        /// <remarks>exemeple: /search?name=jeanne</remarks>
+        /// <remarks>exemple: /search?nom=jeanne</remarks>
+        /// <param nom="nom"></param>
         /// <returns></returns>
-        [Route("search")]
-        public IQueryable<Agence> GetSearch(string name = "")
+        [Route("api/Agences/search")]
+        public IQueryable<Agence> GetSearch(string nom = "")
         {
             var liste = db.Agences.Where(x => !x.Deleted);
-            if (!string.IsNullOrWhiteSpace(name))
-                liste = liste.Where(x => x.Nom.Contains(name));
+            if (!string.IsNullOrWhiteSpace(nom))
+                liste = liste.Where(x => x.Nom.Contains(nom));
 
             return liste;
         }
