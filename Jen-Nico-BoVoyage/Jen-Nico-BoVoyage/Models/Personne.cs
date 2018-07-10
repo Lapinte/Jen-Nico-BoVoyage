@@ -17,6 +17,6 @@ namespace Jen_Nico_BoVoyage.Models
 
         public string Telephone { get; set; }
 
-        public string DateNaissance { get; set; }
+        public DateTime DateNaissance { get; set; }
     }
 }
