@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Agences</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+</head>
+<body>
+    <div class="jumbotron jumbotron-fluid bg-info text-white text-center">
+        <div class="container">
+            <h1 class="display-1">Bo Voyage</h1>
+            <p class="lead">Le monde est un livre et ceux qui ne voyagent pas n'en lisent qu'une page</p>
+        </div>
+    </div>
+
+    <div class="container" style="height: 100px">
+        <div class="row align-items-center h-100">
+            <h1 class="mx-auto">Agences</h1>
+        </div>
+    </div>
+
+    <div class="row form-group justify-content-center">
+        <label for="inputLastName" class="col-form-label col-sm-2">Nom:</label>
+        <div class="col-sm-4">
+            <input class="form-control" id="inputLastName" type="text" placeholder="Nom de l'agence" required />
+        </div>
+    </div>
+
+
+    <div class="container">
+        <input class="form-control" id="myInput" type="text" placeholder="Recherche..">
+        <br>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                </tr>
+            </thead>
+            <tbody id="myTable"></tbody>
+        </table>
+    </div>
+
+    <script src="bootstrap/jquery/jquery-3.3.1.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#myInput").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+
+        $(document).ready(function () {
+            $.get('http://localhost:54746/api/Agences', function (listeAgences) {
+                for (let agence of listeAgences) {
+                    $("#myTable").append(`<tr><td>${agence.Nom}</td></tr>`);
+                }
+
+            });
+
+
+        });
+    </script>
+
+</body>
+</html>
