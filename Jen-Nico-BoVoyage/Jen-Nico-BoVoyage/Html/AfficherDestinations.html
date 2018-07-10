@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Afficher Destinations</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+</head>
+
+
+<body>
+
+    <div class="jumbotron jumbotron-fluid bg-info text-white text-center">
+        <div class="container">
+            <h1 class="display-1">Bo Voyage</h1>
+            <p class="lead">Le monde est un livre et ceux qui ne voyagent pas n'en lisent qu'une page</p>
+        </div>
+    </div>
+
+    <div class="container" style="height: 100px">
+        <div class="row align-items-center h-100">
+            <h1 class="mx-auto">Destinations</h1>
+        </div>
+    </div>
+
+    <div class="container">
+        <input class="form-control" id="myInput" type="text" placeholder="Recherche..">
+        <br>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Continent</th>
+                    <th>Pays</th>
+                    <th>Région</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody id="myTable"></tbody>
+        </table>
+    </div>
+
+    <div class="container">
+        <div class="row form-group justify-content-center">
+            <button type="button" class="col-6 btn btn-outline-info form-control" data-toggle="collapse" data-target="#recherche">Faire une recherche spécifique</button>
+        </div>
+    </div>
+
+    <div id="recherche" class="container collapse">
+        <div class="row form-group justify-content-center">
+            <label for="searchContinent" class="col-form-label col-sm-2">Continent:</label>
+            <div class="col-sm-4">
+                <input class="form-control" id="searchContinent" type="text" />
+            </div>
+            <label for="searchPays" class="col-form-label col-sm-2">Pays:</label>
+            <div class="col-sm-4">
+                <input class="form-control" id="searchPays" type="text" />
+            </div>
+        </div>
+        <div class="row form-group justify-content-center">
+            <label for="searchRegion" class="col-form-label col-sm-2">Région:</label>
+            <div class="col-sm-4">
+                <input class="form-control" id="searchRegion" type="text" />
+            </div>
+            <label for="searchDescription" class="col-form-label col-sm-2">Description:</label>
+            <div class="col-sm-4">
+                <input class="form-control" id="searchDescription" type="text" />
+            </div>
+        </div>
+        <div class="row form-group justify-content-center">
+            <div class="col-sm-4">
+                <button id="btnRechercheSpe" type="submit" class="btn btn-outline-info btn-lg btn-block">Rechercher</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="bootstrap/jquery/jquery-3.3.1.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $.get("http://localhost:54746/api/destinations", function (listeDestination) {
+                for (let destination of listeDestination) {
+                    $("#myTable").append(`<tr><td>${destination.Continent}</td><td>${destination.Pays}</td><td>${destination.Region}</td><td>${destination.Description}</td></tr>`);
+                }
+            });
+
+            $("#btnRechercheSpe").submit(function () {
+                let obj = {
+                    Continent : $("#searchContinent").val(),
+                    Pays: $("#searchPays").val(),
+                    Region: $("#searchRegion").val(),
+                    Description: $("#searchDescription").val()
+                }
+
+                let url = `?continent="${obj.Continent}"&pays="${obj.Pays}"&region="${obj.Region}"&description="${obj.Description}"`
+                $.get(`http://localhost:54746/api/destinations/search${url}`, function (listeSpe) {
+                    for (let destination of listeSpe) {
+                        $("#myTable").append(`<tr><td>${destination.Continent}</td><td>${destination.Pays}</td><td>${destination.Region}</td><td>${destination.Description}</td></tr>`);
+                    }
+                })
+            });
+
+            $("#myInput").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+
+
+
+</body>
+</html>
