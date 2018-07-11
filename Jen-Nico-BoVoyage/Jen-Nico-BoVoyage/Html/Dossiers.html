@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Dossiers</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+<body>
+    <div class="jumbotron jumbotron-fluid bg-info text-white text-center">
+        <div class="container">
+            <h1 class="display-1">Bo Voyage</h1>
+            <p class="lead">Le monde est un livre et ceux qui ne voyagent pas n'en lisent qu'une page</p>
+            <nav class="row navbar navbar-expand-lg navbar-text bg-info justify-content-around">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="Agences.html" class="btn-info col-2 lead">Agences</a></li>
+                    <li><a href="Clients.html" class="btn-info col-2 lead">Clients</a></li>
+                    <li><a href="Destinations.html" class="btn-info col-2 lead">Destinations</a></li>
+                    <li><a href="Dossiers.html" class="btn-info col-2 lead">Dossiers</a></li>
+                    <li><a href="Participants.html" class="btn-info col-2 lead">Participants</a></li>
+                    <li><a href="Voyages.html" class="btn-info col-2 lead">Voyages</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="container" style="height: 100px">
+        <div class="row align-items-center h-100">
+            <h1 class="mx-auto">Dossiers</h1>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row form-group justify-content-around">
+            <button type="button" id="popModalForm" class="col-4 btn btn-info">Ajouter un Dossiers</button>
+            <button type="button" class="col-4 btn btn-outline-info" data-toggle="collapse" data-target="#recherche">Faire une recherche</button>
+        </div>
+    </div>
+
+    <div id="recherche" class="container collapse">
+        <form id="formRecherche">
+            <div class="row form-group justify-content-center">
+                <label for="searchClient" class="col-form-label col-sm-2">Nom</label>
+                <div class="col-sm-4">
+                    <input class="form-control" id="searchClient" type="text" />
+                </div>
+            </div>
+            <div class="row form-group justify-content-center">
+                <label for="searchVoyage" class="col-form-label col-sm-2">Nom</label>
+                <div class="col-sm-4">
+                    <input class="form-control" id="searchVoyage" type="text" />
+                </div>
+            </div>
+            <div class="row form-groupe justify-content-center">
+                <div class="col-sm-4">
+                    <button id="btnRecherche" type="submit" class="btn btn-outline-info btn-sm btn-block">Rechercher</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="container">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Client</th>
+                    <th>Voyage</th>
+                    <th>Numero CB</th>
+                    <th>Prix total</th>
+                    <th>Assurance</th>
+                    <th>Modifier</th>
+                    <th>Supprimer</th>
+                </tr>
+            </thead>
+            <tbody id="myTable"></tbody>
+            <tr id="loadingStatus" style="color:red"></tr>
+        </table>
+    </div>
+
+
+
+</body>
+</html>

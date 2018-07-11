@@ -5,23 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>Agences</title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 </head>
 <body>
     <div class="jumbotron jumbotron-fluid bg-info text-white text-center">
         <div class="container">
             <h1 class="display-1">Bo Voyage</h1>
             <p class="lead">Le monde est un livre et ceux qui ne voyagent pas n'en lisent qu'une page</p>
+            <nav class="row navbar navbar-expand-lg navbar-text bg-info justify-content-around">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="Agences.html" class="btn-info col-2 lead">Agences</a></li>
+                    <li><a href="Clients.html" class="btn-info col-2 lead">Clients</a></li>
+                    <li><a href="Destinations.html" class="btn-info col-2 lead">Destinations</a></li>
+                    <li><a href="Dossiers.html" class="btn-info col-2 lead">Dossiers</a></li>
+                    <li><a href="Participants.html" class="btn-info col-2 lead">Participants</a></li>
+                    <li><a href="Voyages.html" class="btn-info col-2 lead">Voyages</a></li>
+                </ul>
+            </nav>
         </div>
     </div>
 
     <div class="container" style="height: 100px">
         <div class="row align-items-center h-100">
-            <h1 class="mx-auto">Destinations</h1>
+            <h1 class="mx-auto">Agences</h1>
         </div>
     </div>
 
     <div class="container">
-        <div class="row form-group justify-content-center">
+        <div class="row form-group justify-content-around">
             <button type="button" id="popModalForm" class="col-4 btn btn-info">Ajouter une Agence</button>
             <button type="button" class="col-4 btn btn-outline-info" data-toggle="collapse" data-target="#recherche">Faire une recherche</button>
         </div>
@@ -73,7 +84,37 @@
                             </div>
                         </div>
                         <div>
-                            <button type="submit" id="ajouterDestination" class="col-8 btn btn-success btn-ld">Ajouter</button>
+                            <button type="submit" id="ajouterAgence" class="col-8 btn btn-success btn-ld">Ajouter</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container modal fade" id="editModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>Modifier une Agence</h4>
+                    <a href="#" class="close" data-dismiss="modal">&times;</a>
+                </div>
+                <div class="modal-body">
+                    <form id="editModalForm" role="form">
+                        <div hidden class="row form-group justify-content-center">
+                            <label for="agenceID" class="col-form-label col-sm-4">Id:</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" id="agenceID" type="text" required />
+                            </div>
+                        </div>
+                        <div class="row form-group justify-content-center">
+                            <label for="editNom" class="col-form-label col-sm-4">Nom:</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" id="editNom" type="text" placeholder="Nom" required />
+                            </div>
+                        </div>
+                        <div class="row form-group justify-content-around">
+                            <button typeof="submit" id="modifierAgence" class="col-8 btn btn-warning btn-lg">Modifier</button>
                         </div>
                     </form>
                 </div>
@@ -82,55 +123,28 @@
     </div>
 
     <div class="container modal fade" id="deleteModal">
-        
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4>Supprimer l'agence</h4>
-                        <a href="#" class="close data-dismiss=" modal">&times;</a>"
-                    </div>
-                    <div class="modal-body">
-                        <h4>Etes-vous sûr de vouloir supprimer cette agence?</h4>
-                    </div>
-                    <div class="modal-footer">
-                        <a href="#" class="btn btn-danger" data-dismiss="modal">Annuler</a>
-                        <a href="#" class="btn btn-primary" id="confirm" data-dismmiss="modal">Confirmer</a>
-                    </div>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>Supprimer l'agence</h4>
+                    <a href="#" class="close" data-dismiss=" modal">&times;</a>
+                </div>
+                <div class="modal-body">
+                    <h4>Etes-vous sûr de vouloir supprimer cette agence?</h4>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="btn btn-danger" data-dismiss="modal">Annuler</a>
+                    <a href="#" class="btn btn-primary" id="confirm" data-dismmiss="modal">Confirmer</a>
                 </div>
             </div>
-
+        </div>
     </div>
 
     <script src="bootstrap/jquery/jquery-3.3.1.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="../Scripts/functionsAgence.js"></script>
 
     <script>
-
-        function deletedDestination(id) {
-            $("#DeleteModal").modal("show");
-            $("#confirm").on("click", function () {
-                $.ajax({
-                    url: "http://localhost:54746/api/Agences" + id,
-                    method: 'delete',
-                    success: function () {
-                        window.location.href = "http://localhost:54746/Html/AfficherAgences.html";
-                        alert("Agence supprimée");
-                    }
-                });
-            });
-        };
-
-        $("#DeleteModal").modal("show");
-        $("#confirm").on("click", function () {
-            $.ajax({
-                url: "http://localhost:54746/api/Agences" + id,
-                method: 'delete',
-                success: function () {
-                    window.location.href = "http://localhost:54746/Html/AfficherAgences.html";
-                    alert("Agence supprimée");
-                }
-            });
-        });
 
         $(document).ready(function (ev) {
 
@@ -139,8 +153,8 @@
             $.get('http://localhost:54746/api/Agences', function (listeAgences) {
                 for (let agence of listeAgences) {
                     $("#myTable").append(`<tr><td>${agence.Nom}</td>
-                                                <td><button type="button" class="btn btn-warning btn-lg"></button></td>
-                                                <td><button type="button" onclick="deleteNom(<')" class="btn btn-danger btn-lg"></button></td></tr>`);
+                                                    <td><button type="button" onclick="editAgence(${agence.ID})" class="btn btn-warning btn-lg"><i class="fa fa-edit"></i></button></td>
+                                                    <td><button type="button" onclick="deleteAgence(${agence.ID})" class="btn btn-danger btn-lg"><i class="fa fa-trash"></i></button></td></tr>`);
                 }
                 $("#loadingStatus").text("");
             });
@@ -183,8 +197,8 @@
                         $("#myTable").text("");
                         for (let agence of liste) {
                             $("#myTable").append(`<tr><td>${agence.Nom}</td>
-                                                <td><button type="button" class="btn btn-warning btn-lg"></button></td>
-                                                <td><button type="button" onclick="deleteNom(<')" class="btn btn-danger btn-lg"></button></td></tr>`);
+                                                    <td><button type="button" class="btn btn-warning btn-lg"></button></td>
+                                                    <td><button type="button" onclick="deleteNom(<')" class="btn btn-danger btn-lg"></button></td></tr>`);
                         }
                     }
                 });
