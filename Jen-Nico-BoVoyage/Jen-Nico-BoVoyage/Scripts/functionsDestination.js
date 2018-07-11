@@ -5,7 +5,7 @@
             url: "http://localhost:54746/api/destinations/" + id,
             method: 'delete',
             success: function () {
-                window.location.href = "http://localhost:54746/Html/AfficherDestinations.html";
+                window.location.href = "http://localhost:54746/Html/Destinations.html";
                 alert("Destination supprimée");
             }
         });
@@ -13,6 +13,7 @@
 };
 
 function editDestination(id) {
+    
     let url = "http://localhost:54746/api/destinations/" + id;
     $("#editModalForm").trigger("reset");
     $("#editModal").modal();
@@ -42,7 +43,7 @@ function editDestination(id) {
             data: obj,
             success: function () {
                 alert(`Destination modifiée`);
-                window.location.href = "http://localhost:54746/Html/AfficherDestinations.html";
+                window.location.href = "http://localhost:54746/Html/Destinations.html";
                 $("#editModal").modal("hide");
             }
         });

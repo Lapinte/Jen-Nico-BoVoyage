@@ -59,7 +59,7 @@ namespace Jen_Nico_BoVoyage.Controllers
         [Route("api/Clients/search")]
         public IQueryable<Client> GetSearch(string civilite = "", string nom = "", string prenom = "", string adresse = "", string telephone = "", DateTime? dateNaissance = null, string email="")
         {
-            var liste = db.Clients.Where(x => !x.Deleted);
+            IQueryable<Client> liste = db.Clients;
             if (!string.IsNullOrWhiteSpace(civilite))
                 liste = liste.Where(x => x.Civilite.Contains(civilite));
             if (!string.IsNullOrWhiteSpace(nom))
