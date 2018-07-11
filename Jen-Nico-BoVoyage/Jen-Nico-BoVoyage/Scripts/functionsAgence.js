@@ -5,7 +5,7 @@
             url: "http://localhost:54746/api/Agences/" + id,
             method: 'delete',
             success: function () {
-                window.location.href = "http://localhost:54746/Html/AfficherAgences.html";
+                window.location.href = "http://localhost:54746/Html/Agences.html";
                 alert("Agence supprimée");
             }
         });
@@ -37,7 +37,7 @@ function editAgence(id) {
             data: obj,
             success: function () {
                 alert("Agence modifiée");
-                window.location.href = "http://localhost:54746/Html/AfficherAgences.html";
+                window.location.href = "http://localhost:54746/Html/Agences.html";
                 $("#editModal").modal("hide");
             }
 
