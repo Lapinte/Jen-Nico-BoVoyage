@@ -114,6 +114,7 @@
     <Content Include="Html\bootstrap\js\bootstrap.js" />
     <Content Include="Html\bootstrap\js\bootstrap.min.js" />
     <Content Include="Html\AfficherClients.html" />
+    <Content Include="Html\Dossiers.html" />
     <Content Include="Html\index.html" />
     <Content Include="Html\default.html" />
     <Content Include="Scripts\functionsAgence.js" />
