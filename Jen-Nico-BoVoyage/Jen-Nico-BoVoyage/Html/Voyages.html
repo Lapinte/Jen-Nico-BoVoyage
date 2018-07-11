@@ -36,7 +36,7 @@
 
     <div class="container">
         <div class="row form-group justify-content-around">
-            <button type="button" id="popModalForm" class="col-4 btn btn-info">Ajouter une Destination</button>
+            <button type="button" id="popModalForm" class="col-4 btn btn-info">Ajouter un Voyage</button>
             <button type="button" class="col-4 btn btn-outline-info" data-toggle="collapse" data-target="#recherche">Rechercher</button>
         </div>
     </div>
@@ -44,25 +44,17 @@
     <div id="recherche" class="container collapse">
         <form id="formRecherche">
             <div class="row form-group justify-content-center">
-                <label for="searchContinent" class="col-form-label col-sm-2">Continent:</label>
+                <label for="searchAgence" class="col-form-label col-sm-2">Agence:</label>
                 <div class="col-sm-4">
-                    <input class="form-control" value="" id="searchContinent" type="text" />
+                    <select class="form-control" value="" id="searchAgence"></select>
                 </div>
-                <label for="searchPays" class="col-form-label col-sm-2">Pays:</label>
+
+                <label for="searchDestination" class="col-form-label col-sm-2">Destination:</label>
                 <div class="col-sm-4">
-                    <input class="form-control" value="" id="searchPays" type="text" />
-                </div>
-            </div>
-            <div class="row form-group justify-content-center">
-                <label for="searchRegion" class="col-form-label col-sm-2">Région:</label>
-                <div class="col-sm-4">
-                    <input class="form-control" value="" id="searchRegion" type="text" />
-                </div>
-                <label for="searchDescription" class="col-form-label col-sm-2">Description:</label>
-                <div class="col-sm-4">
-                    <input class="form-control" value="" id="searchDescription" type="text" />
+                    <select class="form-control" value="" id="searchDestination"></select>
                 </div>
             </div>
+            
             <div class="row form-group justify-content-center">
                 <div class="col-sm-4">
                     <button id="btnRechercheSpe" type="submit" class="btn btn-outline-info btn-lg btn-block">Rechercher</button>
@@ -75,10 +67,12 @@
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th>Continent</th>
-                    <th>Pays</th>
-                    <th>Région</th>
-                    <th>Description</th>
+                    <th>Agence</th>
+                    <th>Destination</th>
+                    <th>Date Aller</th>
+                    <th>Date Retour</th>
+                    <th>Places Disponibles</th>
+                    <th>Tarif TTC / personne</th>
                     <th>Modifier</th>
                     <th>Supprimer</th>
                 </tr>
@@ -96,36 +90,50 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4>Ajouter une Destination</h4>
+                    <h4>Ajouter un Voyage</h4>
                     <a href="#" class="close" data-dismiss="modal">&times;</a>
                 </div>
                 <div class="modal-body">
                     <form id="addModalForm" role="form">
                         <div class="row form-group justify-content-center">
-                            <label for="inputContinent" class="col-form-label col-sm-4">Continent:</label>
+                            <label for="inputAgence" class="col-form-label col-sm-4">Agence:</label>
                             <div class="col-sm-8">
-                                <input class="form-control" id="inputContinent" type="text" placeholder="Continent" required />
+                                <select class="form-control" value="" id="inputAgence" required></select>
                             </div>
                         </div>
 
                         <div class="row form-group justify-content-center">
-                            <label for="inputPays" class="col-form-label col-sm-4">Pays:</label>
+                            <label for="inputDestination" class="col-form-label col-sm-4">Destination:</label>
                             <div class="col-sm-8">
-                                <input class="form-control" id="inputPays" type="text" placeholder="Pays" required />
+                                <select class="form-control" value="" id="inputDestination" required></select>
                             </div>
                         </div>
 
                         <div class="row form-group justify-content-center">
-                            <label for="inputRegion" class="col-form-label col-sm-4">Région:</label>
+                            <label for="inputDateAller" class="col-form-label col-sm-4">Date Aller:</label>
                             <div class="col-sm-8">
-                                <input class="form-control" id="inputRegion" type="text" placeholder="Région" required />
+                                <input class="form-control" id="inputDateAller" type="date" required />
                             </div>
                         </div>
 
                         <div class="row form-group justify-content-center">
-                            <label for="inputDescription" class="col-form-label col-sm-4">Description:</label>
+                            <label for="inputDateRetour" class="col-form-label col-sm-4">Date Retour:</label>
                             <div class="col-sm-8">
-                                <input class="form-control" id="inputDescription" type="text" placeholder="Description" required />
+                                <input class="form-control" id="inputDateRetour" type="date" required />
+                            </div>
+                        </div>
+
+                        <div class="row form-group justify-content-center">
+                            <label for="inputPlaces" class="col-form-label col-sm-4">Places disponibles:</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" id="inputPlaces" type="number" placeholder="Places disponibles" required />
+                            </div>
+                        </div>
+
+                        <div class="row form-group justify-content-center">
+                            <label for="inputPrix" class="col-form-label col-sm-4">Prix TTC / Personne:</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" id="inputPrix" type="number" placeholder="Prix" required />
                             </div>
                         </div>
 
