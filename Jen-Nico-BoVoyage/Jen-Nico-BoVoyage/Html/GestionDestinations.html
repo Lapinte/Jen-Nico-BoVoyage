@@ -31,5 +31,24 @@
     </div>
     <script src="bootstrap/jquery/jquery-3.3.1.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
+
+    <script>
+        function deleteDestination(ID) {
+            $("#deleteModal").modal("show");
+            $("#confirm").on("click", function () {
+                $.ajax({
+                    url: "http://localhost:54746/api/destinations/" + ID,
+                    method: 'DELETE',
+                    success: function (data) {
+                        alert(`La Destination avec l'ID ${data.ID} a bien été supprimée`);
+                        window.location.href = "http://localhost:54746/Html/AfficherDestinations.html";
+                        $("#deleteModal").modal("hide");
+                    };
+                });
+            });
+        };
+    </script>
+
+
 </body>
 </html>

@@ -145,18 +145,13 @@
 
     <script src="bootstrap/jquery/jquery-3.3.1.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
+
     <script>
-        function deleteDestination(ID) {
+        function deleteDestination(id) {
             $("#deleteModal").modal("show");
             $("#confirm").on("click", function () {
                 $.ajax({
-                    url: "http://localhost:54746/api/destinations/" + ID,
-                    method: 'DELETE',
-                    success: function (data) {
-                        alert(`La Destination avec l'ID ${data.ID} a bien été supprimée`);
-                        window.location.href = "http://localhost:54746/Html/AfficherDestinations.html";
-                        $("#deleteModal").modal("hide");
-                    };
+
                 });
             });
         };
@@ -165,16 +160,20 @@
     <script>
 
         $(document).ready(function () {
+             
+
+
             $("#loadingStatus").text("Chargement... Merci de patienter...");
             $.get("http://localhost:54746/api/destinations", function (listeDestination) {
                 for (let destination of listeDestination) {
                     $("#myTable").append(`<tr><td>${destination.Continent}</td><td>${destination.Pays}</td><td>${destination.Region}</td><td>${destination.Description}</td>
                                             <td><button type="button" class="btn btn-warning btn-lg"></button></td>
-                                            <td><button type="button" onclick="deleteDestination(${destination.ID})" class="col-4 btn btn-danger btn-lg"></button></td></tr>`);
+                                            <td><button type="button" onclick="deleteDestination('${destination.ID}')" class="col-4 btn btn-danger btn-lg"></button></td></tr>`);
                 }
                 $("#loadingStatus").text("");
             });
 
+           
 
             $("#btnRechercheSpe").submit(function () {
                 let obj = {
@@ -197,6 +196,8 @@
                 $("#modalTitle").text("Ajouter une Destination");
                 $("#myModal").modal();
             });
+
+
 
             $("#modalForm").submit(function (ev) {
                 let obj = {
