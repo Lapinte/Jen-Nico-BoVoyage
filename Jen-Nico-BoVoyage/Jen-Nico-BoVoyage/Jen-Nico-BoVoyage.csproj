@@ -98,7 +98,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="Html\AfficherDestinations.html" />
+    <Content Include="Html\Destinations.html" />
     <Content Include="Html\AfficherAgences.html" />
     <Content Include="Html\bootstrap\css\bootstrap-grid.css" />
     <Content Include="Html\bootstrap\css\bootstrap-grid.min.css" />
@@ -120,7 +120,7 @@
     <Content Include="Html\GestionVoyages.html" />
     <Content Include="Html\index.html" />
     <Content Include="Html\default.html" />
-    <Content Include="Scripts\functions.js" />
+    <Content Include="Scripts\functionsDestination.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

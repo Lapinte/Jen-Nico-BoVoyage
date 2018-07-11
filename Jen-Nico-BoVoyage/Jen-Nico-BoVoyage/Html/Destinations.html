@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>Afficher Destinations</title>
+    <title>Destinations</title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 </head>
@@ -15,6 +15,16 @@
         <div class="container">
             <h1 class="display-1">Bo Voyage</h1>
             <p class="lead">Le monde est un livre et ceux qui ne voyagent pas n'en lisent qu'une page</p>
+            <nav class="row navbar navbar-expand-lg navbar-text bg-info justify-content-around">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="Agences.html" class="btn-info col-2 lead">Agences</a></li>
+                    <li><a href="Clients.html" class="btn-info col-2 lead">Clients</a></li>
+                    <li><a href="Destinations.html" class="btn-info col-2 lead">Destinations</a></li>
+                    <li><a href="Dossiers.html" class="btn-info col-2 lead">Dossiers</a></li>
+                    <li><a href="Participants.html" class="btn-info col-2 lead">Participants</a></li>
+                    <li><a href="Voyages.html" class="btn-info col-2 lead">Voyages</a></li>
+                </ul>
+            </nav>
         </div>
     </div>
 
@@ -75,7 +85,7 @@
             </thead>
             <tbody id="myTable">
                 <tr id="loadingStatus" style="color:red"></tr>
-                
+
             </tbody>
         </table>
     </div>
@@ -203,7 +213,7 @@
 
     <script src="bootstrap/jquery/jquery-3.3.1.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="../Scripts/functions.js"></script>
+    <script src="../Scripts/functionsDestination.js"></script>
 
     <script>
 
@@ -213,8 +223,8 @@
             $.get("http://localhost:54746/api/destinations", function (listeDestination) {
                 for (let destination of listeDestination) {
                     $("#myTable").append(`<tr><td>${destination.Continent}</td><td>${destination.Pays}</td><td>${destination.Region}</td><td>${destination.Description}</td>
-                                                                        <td><button type="button" onclick="editDestination('${destination.ID}')" class="btn btn-warning btn-lg"><i class="fa fa-edit"></i></button></td>
-                                                                        <td><button type="button" onclick="deleteDestination('${destination.ID}')" class="col-4 btn btn-danger btn-sm"><i class="fa fa-trash"></i></button></td></tr>`);
+                                                                            <td><button type="button" onclick="editDestination('${destination.ID}')" class="btn btn-warning btn-md"><i class="fa fa-edit"></i></button></td>
+                                                                            <td><button type="button" onclick="deleteDestination('${destination.ID}')" class="col-4 btn btn-danger btn-md"><i class="fa fa-trash"></i></button></td></tr>`);
                 }
                 $("#loadingStatus").text("");
             });
@@ -238,8 +248,8 @@
                         $("#myTable").text("");
                         for (let destination of liste) {
                             $("#myTable").append(`<tr><td>${destination.Continent}</td><td>${destination.Pays}</td><td>${destination.Region}</td><td>${destination.Description}</td>
-                                                                        <td><button type="button" onclick="editDestination('${destination.ID}')" class="btn btn-warning btn-lg"></button></td>
-                                                                        <td><button type="button" onclick="deleteDestination('${destination.ID}')" class="col-4 btn btn-danger btn-sm">&times;</button></td></tr>`);
+                                                                            <td><button type="button" onclick="editDestination('${destination.ID}')" class="btn btn-warning btn-md"><i class="fa fa-edit"></i></button></td>
+                                                                            <td><button type="button" onclick="deleteDestination('${destination.ID}')" class="col-4 btn btn-danger btn-md"><i class="fa fa-trash"></i></button></td></tr>`);
                         }
                     }
                 });
