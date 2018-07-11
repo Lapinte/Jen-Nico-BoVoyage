@@ -52,6 +52,7 @@ namespace Jen_Nico_BoVoyage.Controllers
         /// <param name="region"></param>
         /// <param name="description"></param>
         /// <returns></returns>
+        //GET: api/Destination/search
         [Route("api/Destinations/search")]
         public IQueryable<Destination> GetSearch(string continent = "", string pays = "", string region = "", string description = "")
         {

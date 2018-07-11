@@ -55,6 +55,7 @@ namespace Jen_Nico_BoVoyage.Controllers
         /// <param name="dateNaissance"></param>
         /// <param name="email"></param>
         /// <returns></returns>
+        //GET: api/Clients/search
         [Route("api/Clients/search")]
         public IQueryable<Client> GetSearch(string civilite = "", string nom = "", string prenom = "", string adresse = "", string telephone = "", DateTime? dateNaissance = null, string email="")
         {
