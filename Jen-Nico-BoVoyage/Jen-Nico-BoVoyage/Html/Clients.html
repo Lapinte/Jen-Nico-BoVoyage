@@ -1,0 +1,358 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Clients</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+
+
+<body>
+
+    <div class="jumbotron jumbotron-fluid bg-info text-white text-center">
+        <div class="container">
+            <h1 class="display-1">Bo Voyage</h1>
+            <p class="lead">Le monde est un livre et ceux qui ne voyagent pas n'en lisent qu'une page</p>
+            <nav class="row navbar navbar-expand-lg navbar-text bg-info justify-content-around">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="Agences.html" class="btn-info col-2 lead">Agences</a></li>
+                    <li><a href="Clients.html" class="btn-info col-2 lead">Clients</a></li>
+                    <li><a href="Destinations.html" class="btn-info col-2 lead">Destinations</a></li>
+                    <li><a href="Dossiers.html" class="btn-info col-2 lead">Dossiers</a></li>
+                    <li><a href="Participants.html" class="btn-info col-2 lead">Participants</a></li>
+                    <li><a href="Voyages.html" class="btn-info col-2 lead">Voyages</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="container" style="height: 100px">
+        <div class="row align-items-center h-100">
+            <h1 class="mx-auto">Clients</h1>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row form-group justify-content-around">
+            <button type="button" id="popModalForm" class="col-4 btn btn-info">Ajouter un Client</button>
+            <button type="button" class="col-4 btn btn-outline-info" data-toggle="collapse" data-target="#recherche">Rechercher</button>
+        </div>
+    </div>
+
+    <div id="recherche" class="container collapse">
+        <form id="formRecherche">
+            <div class="row form-group justify-content-center">
+                <label for="searchCivilite" class="col-form-label col-sm-1">Civilite:</label>
+                <div class="col-sm-2">
+                    <select class="form-control" value="" id="searchCivilite">
+                        <option>Mr</option>
+                        <option>Mme</option>
+                    </select>
+                </div>
+
+                <label for="searchNom" class="col-form-label col-sm-1">Nom:</label>
+                <div class="col-sm-2">
+                    <input class="form-control" value="" id="searchNom" type="text" />
+                </div>
+
+                <label for="searchPrenom" class="col-form-label col-sm-1">Prénom:</label>
+                <div class="col-sm-2">
+                    <input class="form-control" value="" id="searchPrenom" type="text" />
+                </div>
+
+                <label for="searchTelephone" class="col-form-label col-sm-1">Téléphone:</label>
+                <div class="col-sm-2">
+                    <input class="form-control" value="" id="searchTelephone" type="text" />
+                </div>
+            </div>
+            <div class="row form-group justify-content-center">
+                <label for="searchAdresse" class="col-form-label col-sm-1">Adresse:</label>
+                <div class="col-sm-3">
+                    <input class="form-control" value="" id="searchAdresse" type="text" />
+                </div>
+                <label for="searchEmail" class="col-form-label col-sm-1">Email:</label>
+                <div class="col-sm-3">
+                    <input class="form-control" value="" id="searchEmail" type="email" />
+                </div>
+                <label for="searchBirthdate" class="col-form-label col-sm-1">Date de naissance:</label>
+                <div class="col-sm-3">
+                    <input class="form-control" value="" id="searchBirthdate" type="date" />
+                </div>
+            </div>
+            <div class="row form-group justify-content-center">
+                <div class="col-sm-4">
+                    <button id="btnRechercheSpe" type="submit" class="btn btn-outline-info btn-lg btn-block">Rechercher</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="container">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Civ</th>
+                    <th>Prénom</th>
+                    <th>Nom</th>
+                    <th>Téléphone</th>
+                    <th>Adresse</th>
+                    <th>Email</th>
+                    <th>Date de naissance</th>
+                    <th>Modifier</th>
+                    <th>Supprimer</th>
+                </tr>
+            </thead>
+            <tbody id="myTable">
+                <tr id="loadingStatus" style="color:red"></tr>
+
+            </tbody>
+        </table>
+    </div>
+
+
+
+    <div class="container modal fade" id="addModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>Ajouter un Client</h4>
+                    <a href="#" class="close" data-dismiss="modal">&times;</a>
+                </div>
+                <div class="modal-body">
+                    <form id="addModalForm" role="form">
+                        <div class="row form-group justify-content-center">
+                            <label for="inputCivilite" class="col-form-label col-sm-4">Civilité:</label>
+                            <div class="col-sm-8">
+                                <select class="form-control" value="" id="inputCivilite">
+                                    <option>Mr</option>
+                                    <option>Mme</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row form-group justify-content-center">
+                            <label for="inputPrenom" class="col-form-label col-sm-4">Prénom:</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" value="" id="inputPrenom" type="text" required />
+                            </div>
+                        </div>
+
+                        <div class="row form-group justify-content-center">
+                            <label for="inputNom" class="col-form-label col-sm-4">Nom:</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" value="" id="inputNom" type="text" required />
+                            </div>
+                        </div>
+
+                        <div class="row form-group justify-content-center">
+                            <label for="inputTelephone" class="col-form-label col-sm-4">Téléphone:</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" value="" id="inputTelephone" type="text" required/>
+                            </div>
+                        </div>
+
+                        <div class="row form-group justify-content-center">
+                            <label for="inputAdresse" class="col-form-label col-sm-4">Adresse:</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" value="" id="inputAdresse" type="text" required/>
+                            </div>
+                        </div>
+
+                        <div class="row form-group justify-content-center">
+                            <label for="inputEmail" class="col-form-label col-sm-4">Email:</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" value="" id="inputEmail" type="email" required/>
+                            </div>
+                        </div>
+
+                        <div class="row form-group justify-content-center">
+                            <label for="inputBirthdate" class="col-form-label col-sm-4">Date de naissance:</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" value="" id="inputBirthdate" type="date" required/>
+                            </div>
+                        </div>
+
+                        <div class="row form-group justify-content-around">
+                            <button type="submit" id="ajouterDestination" class="col-8 btn btn-success btn-lg">Ajouter</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container modal fade" id="editModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>Modifier un Client</h4>
+                    <a href="#" class="close" data-dismiss="modal">&times;</a>
+                </div>
+                <div class="modal-body">
+                    <form id="editModalForm" role="form">
+                        <div hidden class="row form-group justify-content-center">
+                            <label for="destinationID" class="col-form-label col-sm-4">Id:</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" id="clientID" type="text" placeholder="ID" required />
+                            </div>
+                        </div>
+
+                        <div class="row form-group justify-content-center">
+                            <label for="editCivilite" class="col-form-label col-sm-4">Civilité:</label>
+                            <div class="col-sm-8">
+                                <select class="form-control" value="" id="editCivilite">
+                                    <option>Mr</option>
+                                    <option>Mme</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row form-group justify-content-center">
+                            <label for="editPrenom" class="col-form-label col-sm-4">Prénom:</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" value="" id="editPrenom" type="text" required/>
+                            </div>
+                        </div>
+
+                        <div class="row form-group justify-content-center">
+                            <label for="editNom" class="col-form-label col-sm-4">Nom:</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" value="" id="editNom" type="text" required/>
+                            </div>
+                        </div>
+
+                        <div class="row form-group justify-content-center">
+                            <label for="editTelephone" class="col-form-label col-sm-4">Téléphone:</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" value="" id="editTelephone" type="text" />
+                            </div>
+                        </div>
+
+                        <div class="row form-group justify-content-center">
+                            <label for="editAdresse" class="col-form-label col-sm-4">Adresse:</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" value="" id="editAdresse" type="text" required/>
+                            </div>
+                        </div>
+
+                        <div class="row form-group justify-content-center">
+                            <label for="editEmail" class="col-form-label col-sm-4">Email:</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" value="" id="editEmail" type="email" required/>
+                            </div>
+                        </div>
+
+                        <div class="row form-group justify-content-center">
+                            <label for="editBirthdate" class="col-form-label col-sm-4">Date de naissance:</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" value="" id="editBirthdate" type="date" required/>
+                            </div>
+                        </div>
+
+                        <div class="row form-group justify-content-around">
+                            <button type="submit" id="modifierClient" class="col-8 btn btn-warning btn-lg">Modifier</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container modal fade" id="deleteModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>Supprimer le Client</h4>
+                    <a href="#" class="close" data-dismiss="modal">&times;</a>
+                </div>
+                <div class="modal-body">
+                    <h4>Etes-vous sûr de vouloir supprimer ce Client?</h4>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="btn btn-danger" data-dismiss="modal">Annuler</a>
+                    <a href="#" class="btn btn-primary" id="confirm" data-dismiss="modal">Confirmer</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="bootstrap/jquery/jquery-3.3.1.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="../Scripts/functionsClients.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+
+            $("#loadingStatus").text("Chargement... Merci de patienter...");
+            $.get("http://localhost:54746/api/clients", function (listeClient) {
+                for (let client of listeClient) {
+                    $("#myTable").append(`<tr><td>${client.Civilite}</td><td>${client.Prenom}</td><td>${client.Nom}</td><td>${client.Telephone}</td><td>${client.Adresse}</td><td>${client.Email}</td><td>${client.DateNaissance}</td>
+                                                                                <td><button type="button" onclick="editClient('${client.ID}')" class="col-12 btn btn-warning btn-md"><i class="fa fa-edit"></i></button></td>
+                                                                                <td><button type="button" onclick="deleteClient('${client.ID}')" class="col-12 btn btn-danger btn-md"><i class="fa fa-trash"></i></button></td></tr>`);
+                }
+                $("#loadingStatus").text("");
+            });
+
+            $("#formRecherche").submit(function (ev) {
+                let obj = {
+                    Civilite: $("#searchCivilite").val(),
+                    Prenom: $("#searchPrenom").val(),
+                    Nom: $("#searchNom").val(),
+                    Telephone: $("#searchTelephone").val(),
+                    Adresse: $("#searchAdresse").val(),
+                    Email: $("#searchEmail").val(),
+                    DateNaissance: $("#searchBirthdate").val()
+                }
+
+                let url = "http://localhost:54746/api/clients/search?civilite=" + obj.Civilite + "&prenom=" + obj.Prenom + "&nom=" + obj.Nom + "&telephone=" + obj.Telephone + "&adresse=" + obj.Adresse + "&email=" + obj.Email + "&dateNaissance=" + obj.DateNaissance;
+                $.ajax({
+                    url: url,
+                    method: 'GET',
+                    success: function (liste) {
+                        $("#myTable").text("");
+                        for (let client of liste) {
+                            $("#myTable").append(`<tr><td>${client.Civilite}</td><td>${client.Prenom}</td><td>${client.Nom}</td><td>${client.Telephone}</td><td>${client.Adresse}</td><td>${client.Email}</td><td>${client.DateNaissance}</td>
+                                                                                <td><button type="button" onclick="editClient('${client.ID}')" class="col-12 btn btn-warning btn-md"><i class="fa fa-edit"></i></button></td>
+                                                                                <td><button type="button" onclick="deleteClient('${client.ID}')" class="col-12 btn btn-danger btn-md"><i class="fa fa-trash"></i></button></td></tr>`);
+                        }
+                    }
+                });
+                ev.preventDefault();
+            });
+
+            $("#popModalForm").on("click", function () {
+                $("#modalForm").trigger("reset");
+                $("#addModal").modal();
+            });
+
+            $("#addModalForm").submit(function (ev) {
+                let obj = {
+                    Civilite: $("#inputCivilite").val(),
+                    Prenom: $("#inputPrenom").val(),
+                    Nom: $("#inputNom").val(),
+                    Telephone: $("#inputTelephone").val(),
+                    Adresse: $("#inputAdresse").val(),
+                    Email: $("#inputEmail").val(),
+                    DateNaissance: $("#inputBirthdate").val()
+                };
+
+                $.ajax({
+                    url: "http://localhost:54746/api/clients",
+                    method: "POST",
+                    data: obj,
+                    success: function (data) {
+                        alert(`Client enregistré avec l'ID ${data.ID}`);
+                        window.location.href = "http://localhost:54746/Html/Clients.html";
+                        $("#myModal").modal("hide");
+                    }
+                });
+
+                ev.preventDefault();
+            });
+        });
+    </script>
+</body>
+</html>
