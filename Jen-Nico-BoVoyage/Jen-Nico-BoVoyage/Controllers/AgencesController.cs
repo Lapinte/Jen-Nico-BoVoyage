@@ -50,10 +50,11 @@ namespace Jen_Nico_BoVoyage.Controllers
         /// <remarks>exemple: /search?nom=jeanne</remarks>
         /// <param nom="nom"></param>
         /// <returns></returns>
+        //GET: api/Agences/search
         [Route("api/Agences/search")]
         public IQueryable<Agence> GetSearch(string nom = "")
         {
-            var liste = db.Agences.Where(x => !x.Deleted);
+            IQueryable<Agence> liste = db.Agences;
             if (!string.IsNullOrWhiteSpace(nom))
                 liste = liste.Where(x => x.Nom.Contains(nom));
 
