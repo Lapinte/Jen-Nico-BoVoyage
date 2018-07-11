@@ -31,6 +31,7 @@ FrontEnd A faire :
 
 Participants.Html
 Restrictions d'entrés sur les différents input.
+Vérifier que les pages HTML sont conformes à la norme W3C.
 
 
 
