@@ -56,7 +56,7 @@ namespace Jen_Nico_BoVoyage.Controllers
         [Route("api/Destinations/search")]
         public IQueryable<Destination> GetSearch(string continent = "", string pays = "", string region = "", string description = "")
         {
-            var liste = db.Destinations.Where(x => !x.Deleted);
+            IQueryable<Destination> liste = db.Destinations;
             if (!string.IsNullOrWhiteSpace(continent))
                 liste = liste.Where(x => x.Continent.Contains(continent));
             if (!string.IsNullOrWhiteSpace(pays))

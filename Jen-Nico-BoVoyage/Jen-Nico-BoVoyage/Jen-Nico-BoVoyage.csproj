@@ -120,6 +120,7 @@
     <Content Include="Html\GestionVoyages.html" />
     <Content Include="Html\index.html" />
     <Content Include="Html\default.html" />
+    <Content Include="Scripts\functions.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
