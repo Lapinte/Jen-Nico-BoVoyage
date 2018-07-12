@@ -6,6 +6,13 @@
     <title>Dossiers</title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <style>
+        .input[type="checkbox"] {
+            margin-top:2em;
+            width: 1em;
+            height: 1em;
+        }
+    </style>
 </head>
 <body>
     <div class="jumbotron jumbotron-fluid bg-info text-white text-center">
@@ -41,13 +48,13 @@
     <div id="recherche" class="container collapse">
         <form id="formRecherche">
             <div class="row form-group justify-content-center">
-                <label for="searchClient" class="col-form-label col-sm-2">Nom</label>
+                <label for="searchClient" class="col-form-label col-sm-2">Nom:</label>
                 <div class="col-sm-4">
                     <input class="form-control" id="searchClient" type="text" />
                 </div>
             </div>
             <div class="row form-group justify-content-center">
-                <label for="searchVoyage" class="col-form-label col-sm-2">Voyage</label>
+                <label for="searchVoyage" class="col-form-label col-sm-2">Voyage:</label>
                 <div class="col-sm-4">
                     <input class="form-control" id="searchVoyage" type="text" />
                 </div>
@@ -88,33 +95,37 @@
                 <div class="modal-body">
                     <form id="modalForm" role="form">
                         <div class="row form-group justify-content-center">
-                            <label for="inputClient" class="col-form-label col-sm-4">Client</label>
+                            <label for="inputClient" class="col-form-label col-sm-4">Client:</label>
                             <div class="col-sm-8">
                                 <select class="form-control" value="" id="inputClient" required />
                             </div>
                         </div>
                         <div class="row form-group justify-content-center">
-                            <label for="inputVoyage" class="col-form-label col-sm-4">Voyage</label>
+                            <label for="inputVoyage" class="col-form-label col-sm-4">Voyage:</label>
                             <div class="col-sm-8">
                                 <select class="form-control" value="" id="inputVoyage" required />
                             </div>
                         </div>
                         <div class="row form-group justify-content-center">
-                            <label for="inputNumero" class="col-form-label col-sm-4">Numéro CB</label>
+                            <label for="inputNumero" class="col-form-label col-sm-4">Numéro CB:</label>
                             <div class="col-sm-8">
                                 <input class="form-control" id="inputNumero" type="text" placeholder="numero CB" required />
                             </div>
                         </div>
                         <div class="row form-group justify-content-center">
-                            <label for="inputPrixTotal" class="col-form-label col-sm-4">Prix total</label>
+                            <label for="inputPrixTotal" class="col-form-label col-sm-4">Prix total:</label>
                             <div class="col-sm-8">
                                 <input class="form-control" id="inputClient" type="text" placeholder="Prix total" required />
                             </div>
                         </div>
                         <div class="row form-group justify-content-center">
-                            <label><input name="Assurance" type="checkbox" value=""> Assurance</label>
+                            <label for="inputAssurance" class="form-check-label col-form-label col-sm-4">Assurance:</label>
+                            <div class="col-sm-8 form-check">
+                                <input class="form-check-input" id="inputAssurance" name="Assurance" type="checkbox" value="">
+                            </div>
                         </div>
-                        <div>
+
+                        <div class="row form-group justify-content-around">
                             <button type="submit" id="ajouterDossier" class="col-8 btn btn-success btn-ld">Ajouter</button>
                         </div>
                     </form>
@@ -134,8 +145,8 @@
             $.get('http://localhost:54746/api/Agences', function (listeDossiers) {
                 for (let dossier of listeDossiers) {
                     $("#myTable").append(`<tr><td>${dossier.Client}</td><td>${dossier.Voyage}</td><td>${dossier.NumeroCarteBancaire}</td><td>${dossier.PrixTotal}</td><td>${dossier.Assurance}</td>
-                                                        <td><button type="button" onclick="editAgence(${Dossier.ID})" class="btn btn-warning btn-lg"><i class="fa fa-edit"></i></button></td>
-                                                        <td><button type="button" onclick="deleteAgence(${Dossier.ID})" class="btn btn-danger btn-lg"><i class="fa fa-trash"></i></button></td></tr>`);
+                                                                <td><button type="button" onclick="editAgence(${Dossier.ID})" class="btn btn-warning btn-lg"><i class="fa fa-edit"></i></button></td>
+                                                                <td><button type="button" onclick="deleteAgence(${Dossier.ID})" class="btn btn-danger btn-lg"><i class="fa fa-trash"></i></button></td></tr>`);
                 }
                 $("#loadingStatus").text("");
             });
@@ -169,7 +180,7 @@
 
         });
 
-            
+
 
 
 

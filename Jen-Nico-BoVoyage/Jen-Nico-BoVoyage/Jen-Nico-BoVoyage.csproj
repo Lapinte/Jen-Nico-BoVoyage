@@ -99,6 +99,7 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="Html\Clients.html" />
+    <Content Include="Html\Participants.html" />
     <Content Include="Html\Voyages.html" />
     <Content Include="Html\Destinations.html" />
     <Content Include="Html\Agences.html" />
@@ -113,10 +114,8 @@
     <Content Include="Html\bootstrap\js\bootstrap.bundle.min.js" />
     <Content Include="Html\bootstrap\js\bootstrap.js" />
     <Content Include="Html\bootstrap\js\bootstrap.min.js" />
-    <Content Include="Html\AfficherClients.html" />
     <Content Include="Html\Dossiers.html" />
     <Content Include="Html\index.html" />
-    <Content Include="Html\default.html" />
     <Content Include="Scripts\functionsAgence.js" />
     <Content Include="Scripts\functionsClients.js" />
     <Content Include="Scripts\functionsDestination.js" />
