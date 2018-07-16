@@ -54,7 +54,7 @@
                     <select class="form-control" value="" id="searchDestination"></select>
                 </div>
             </div>
-            
+
             <div class="row form-group justify-content-center">
                 <div class="col-sm-4">
                     <button id="btnRechercheSpe" type="submit" class="btn btn-outline-info btn-lg btn-block">Rechercher</button>
@@ -228,11 +228,21 @@
         $(document).ready(function () {
 
             $("#loadingStatus").text("Chargement... Merci de patienter...");
-            $.get("http://localhost:54746/api/destinations", function (listeDestination) {
-                for (let destination of listeDestination) {
-                    $("#myTable").append(`<tr><td>${destination.Continent}</td><td>${destination.Pays}</td><td>${destination.Region}</td><td>${destination.Description}</td>
-                                                                            <td><button type="button" onclick="editDestination('${destination.ID}')" class="btn btn-warning btn-md"><i class="fa fa-edit"></i></button></td>
-                                                                            <td><button type="button" onclick="deleteDestination('${destination.ID}')" class="col-4 btn btn-danger btn-md"><i class="fa fa-trash"></i></button></td></tr>`);
+            $.get("http://localhost:54746/api/destinations", function (listeDestinations) {
+                for (let destination of listeDestinations) {
+                    $("#inputDestination").append(`<option>${destination.Pays}</option>`)
+                }
+            });
+            $.get('http://localhost:54746/api/Agences', function (listeAgences) {
+                for (let agence of listeAgences) {
+                    $("#inputAgence").append(`<option>${agence.Nom}</option>`)
+                }
+            });
+            $.get("http://localhost:54746/api/voyages", function (listeVoyages) {
+                for (let voyage of listeVoyages) {
+                    $("#myTable").append(`<tr><td>${voyage.Agence}</td><td>${voyage.Destination}</td><td>${voyage.DateAller}</td><td>${voyage.DateRetour}</td><td>${voyage.PlacesDisponibles}</td><td>${voyage.TarifToutCompris}</td>
+                                                                                <td><button type="button" onclick="editVoyage('${voyage.ID}')" class="btn btn-warning btn-md"><i class="fa fa-edit"></i></button></td>
+                                                                                <td><button type="button" onclick="deleteVoyage('${voyage.ID}')" class="col-4 btn btn-danger btn-md"><i class="fa fa-trash"></i></button></td></tr>`);
                 }
                 $("#loadingStatus").text("");
             });
@@ -256,8 +266,8 @@
                         $("#myTable").text("");
                         for (let destination of liste) {
                             $("#myTable").append(`<tr><td>${destination.Continent}</td><td>${destination.Pays}</td><td>${destination.Region}</td><td>${destination.Description}</td>
-                                                                            <td><button type="button" onclick="editDestination('${destination.ID}')" class="btn btn-warning btn-md"><i class="fa fa-edit"></i></button></td>
-                                                                            <td><button type="button" onclick="deleteDestination('${destination.ID}')" class="col-4 btn btn-danger btn-md"><i class="fa fa-trash"></i></button></td></tr>`);
+                                                                                <td><button type="button" onclick="editDestination('${destination.ID}')" class="btn btn-warning btn-md"><i class="fa fa-edit"></i></button></td>
+                                                                                <td><button type="button" onclick="deleteDestination('${destination.ID}')" class="col-4 btn btn-danger btn-md"><i class="fa fa-trash"></i></button></td></tr>`);
                         }
                     }
                 });
@@ -271,19 +281,21 @@
 
             $("#addModalForm").submit(function (ev) {
                 let obj = {
-                    Continent: $("#inputContinent").val(),
-                    Pays: $("#inputPays").val(),
-                    Region: $("#inputRegion").val(),
-                    Description: $("#inputDescription").val()
+                    Agence: $("#inputAgence").val(),
+                    Destination: $("#inputDestination").val(),
+                    DateAller: $("#inputDateAller").val(),
+                    DateRetour: $("#inputDateRetour").val(),
+                    PlacesDisponibles: $("#inputPlaces").val(),
+                    TarifToutCompris: $("#inputPrix").val()
                 };
 
                 $.ajax({
-                    url: "http://localhost:54746/api/destinations",
+                    url: "http://localhost:54746/api/voyages",
                     method: "POST",
                     data: obj,
                     success: function (data) {
-                        alert(`Destination enregistrée avec l'ID ${data.ID}`);
-                        window.location.href = "http://localhost:54746/Html/Destinations.html";
+                        alert(`Voyage enregistré avec l'ID ${data.ID}`);
+                        window.location.href = "http://localhost:54746/Html/Voyages.html";
                         $("#myModal").modal("hide");
                     }
                 });
