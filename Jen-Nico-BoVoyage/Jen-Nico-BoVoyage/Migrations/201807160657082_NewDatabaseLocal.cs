@@ -3,7 +3,7 @@ namespace Jen_Nico_BoVoyage.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Init : DbMigration
+    public partial class NewDatabaseLocal : DbMigration
     {
         public override void Up()
         {
@@ -13,7 +13,7 @@ namespace Jen_Nico_BoVoyage.Migrations
                     {
                         ID = c.Int(nullable: false, identity: true),
                         Nom = c.String(),
-                        CreatedAt = c.DateTime(nullable: false, defaultValueSql: "getdate()"),
+                        CreatedAt = c.DateTime(nullable: false, defaultValueSql: "getDate()"),
                         Deleted = c.Boolean(nullable: false),
                         DeletedAt = c.DateTime(),
                     })
@@ -30,8 +30,8 @@ namespace Jen_Nico_BoVoyage.Migrations
                         Prenom = c.String(),
                         Adresse = c.String(),
                         Telephone = c.String(),
-                        DateNaissance = c.String(),
-                        CreatedAt = c.DateTime(nullable: false, defaultValueSql: "getdate()"),
+                        DateNaissance = c.DateTime(nullable: false),
+                        CreatedAt = c.DateTime(nullable: false, defaultValueSql: "getDate()"),
                         Deleted = c.Boolean(nullable: false),
                         DeletedAt = c.DateTime(),
                     })
@@ -46,7 +46,7 @@ namespace Jen_Nico_BoVoyage.Migrations
                         Pays = c.String(),
                         Region = c.String(),
                         Description = c.String(),
-                        CreatedAt = c.DateTime(nullable: false, defaultValueSql: "getdate()"),
+                        CreatedAt = c.DateTime(nullable: false, defaultValueSql: "getDate()"),
                         Deleted = c.Boolean(nullable: false),
                         DeletedAt = c.DateTime(),
                     })
@@ -62,7 +62,7 @@ namespace Jen_Nico_BoVoyage.Migrations
                         Assurance = c.Boolean(nullable: false),
                         VoyageID = c.Int(nullable: false),
                         ClientID = c.Int(nullable: false),
-                        CreatedAt = c.DateTime(nullable: false, defaultValueSql: "getdate()"),
+                        CreatedAt = c.DateTime(nullable: false, defaultValueSql: "getDate()"),
                         Deleted = c.Boolean(nullable: false),
                         DeletedAt = c.DateTime(),
                     })
@@ -83,7 +83,7 @@ namespace Jen_Nico_BoVoyage.Migrations
                         TarifToutCompris = c.Single(nullable: false),
                         DestinationID = c.Int(nullable: false),
                         AgenceID = c.Int(nullable: false),
-                        CreatedAt = c.DateTime(nullable: false, defaultValueSql: "getdate()"),
+                        CreatedAt = c.DateTime(nullable: false, defaultValueSql: "getDate()"),
                         Deleted = c.Boolean(nullable: false),
                         DeletedAt = c.DateTime(),
                     })
@@ -92,22 +92,20 @@ namespace Jen_Nico_BoVoyage.Migrations
                 .ForeignKey("dbo.Destinations", t => t.DestinationID, cascadeDelete: true)
                 .Index(t => t.DestinationID)
                 .Index(t => t.AgenceID);
-            
+
             CreateTable(
                 "dbo.Participants",
                 c => new
-                    {
-                        ID = c.Int(nullable: false, identity: true),
-                        NumeroUnique = c.Int(nullable: false),
-                        Reduction = c.Single(nullable: false),
-                        DossierID = c.Int(nullable: false),
-                        Civilite = c.String(),
-                        Nom = c.String(),
-                        Prenom = c.String(),
-                        Adresse = c.String(),
-                        Telephone = c.String(),
-                        DateNaissance = c.String(),
-                        CreatedAt = c.DateTime(nullable: false, defaultValueSql: "getdate()"),
+                {
+                    ID = c.Int(nullable: false, identity: true),
+                    DossierID = c.Int(nullable: false),
+                    Civilite = c.String(),
+                    Nom = c.String(),
+                    Prenom = c.String(),
+                    Adresse = c.String(),
+                    Telephone = c.String(),
+                    DateNaissance = c.DateTime(nullable: false),
+                    CreatedAt = c.DateTime(nullable: false, defaultValueSql: "getDate()"),
                         Deleted = c.Boolean(nullable: false),
                         DeletedAt = c.DateTime(),
                     })

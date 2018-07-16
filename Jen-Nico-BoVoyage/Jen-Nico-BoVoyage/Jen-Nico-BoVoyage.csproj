@@ -134,17 +134,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807100751357_Init.cs" />
-    <Compile Include="Migrations\201807100751357_Init.Designer.cs">
-      <DependentUpon>201807100751357_Init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807100928123_ModifPersonne.cs" />
-    <Compile Include="Migrations\201807100928123_ModifPersonne.Designer.cs">
-      <DependentUpon>201807100928123_ModifPersonne.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807101304050_ModifTableParticipants.cs" />
-    <Compile Include="Migrations\201807101304050_ModifTableParticipants.Designer.cs">
-      <DependentUpon>201807101304050_ModifTableParticipants.cs</DependentUpon>
+    <Compile Include="Migrations\201807160657082_NewDatabaseLocal.cs" />
+    <Compile Include="Migrations\201807160657082_NewDatabaseLocal.Designer.cs">
+      <DependentUpon>201807160657082_NewDatabaseLocal.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Agence.cs" />
@@ -180,14 +172,8 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201807100751357_Init.resx">
-      <DependentUpon>201807100751357_Init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807100928123_ModifPersonne.resx">
-      <DependentUpon>201807100928123_ModifPersonne.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807101304050_ModifTableParticipants.resx">
-      <DependentUpon>201807101304050_ModifTableParticipants.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201807160657082_NewDatabaseLocal.resx">
+      <DependentUpon>201807160657082_NewDatabaseLocal.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

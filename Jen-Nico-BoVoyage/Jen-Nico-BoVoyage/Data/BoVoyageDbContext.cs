@@ -9,7 +9,7 @@ namespace Jen_Nico_BoVoyage.Data
 {
     public class BoVoyageDbContext : DbContext
     {
-        public BoVoyageDbContext() : base("BoVoyageAzure")
+        public BoVoyageDbContext() : base("BoVoyage")
         {
         }
 

@@ -7,13 +7,13 @@ namespace Jen_Nico_BoVoyage.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class ModifTableParticipants : IMigrationMetadata
+    public sealed partial class NewDatabaseLocal : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ModifTableParticipants));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(NewDatabaseLocal));
         
         string IMigrationMetadata.Id
         {
-            get { return "201807101304050_ModifTableParticipants"; }
+            get { return "201807160657082_NewDatabaseLocal"; }
         }
         
         string IMigrationMetadata.Source
