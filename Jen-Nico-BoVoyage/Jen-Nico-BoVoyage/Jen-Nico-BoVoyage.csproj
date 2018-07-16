@@ -118,6 +118,7 @@
     <Content Include="Html\index.html" />
     <Content Include="Scripts\functionsAgence.js" />
     <Content Include="Scripts\functionsClients.js" />
+    <Content Include="Scripts\functionsVoyage.js" />
     <Content Include="Scripts\functionsDestination.js" />
     <Content Include="Web.config" />
   </ItemGroup>

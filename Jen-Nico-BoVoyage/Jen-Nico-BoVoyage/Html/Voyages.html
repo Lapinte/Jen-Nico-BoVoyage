@@ -230,17 +230,17 @@
             $("#loadingStatus").text("Chargement... Merci de patienter...");
             $.get("http://localhost:54746/api/destinations", function (listeDestinations) {
                 for (let destination of listeDestinations) {
-                    $("#inputDestination").append(`<option>${destination.Pays}</option>`)
+                    $("#inputDestination").append(`<option value="${destination.ID}">${destination.Pays}</option>`)
                 }
             });
             $.get('http://localhost:54746/api/Agences', function (listeAgences) {
                 for (let agence of listeAgences) {
-                    $("#inputAgence").append(`<option>${agence.Nom}</option>`)
+                    $("#inputAgence").append(`<option value="${agence.ID}">${agence.Nom}</option>`)
                 }
             });
             $.get("http://localhost:54746/api/voyages", function (listeVoyages) {
                 for (let voyage of listeVoyages) {
-                    $("#myTable").append(`<tr><td>${voyage.Agence}</td><td>${voyage.Destination}</td><td>${voyage.DateAller}</td><td>${voyage.DateRetour}</td><td>${voyage.PlacesDisponibles}</td><td>${voyage.TarifToutCompris}</td>
+                    $("#myTable").append(`<tr><td>${voyage.Agence.Nom}</td><td>${voyage.Destination.Pays}</td><td>${voyage.DateAller}</td><td>${voyage.DateRetour}</td><td>${voyage.PlacesDisponibles}</td><td>${voyage.TarifToutCompris}</td>
                                                                                 <td><button type="button" onclick="editVoyage('${voyage.ID}')" class="btn btn-warning btn-md"><i class="fa fa-edit"></i></button></td>
                                                                                 <td><button type="button" onclick="deleteVoyage('${voyage.ID}')" class="col-4 btn btn-danger btn-md"><i class="fa fa-trash"></i></button></td></tr>`);
                 }
